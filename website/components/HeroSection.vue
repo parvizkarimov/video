@@ -3,7 +3,7 @@
     <ClientOnly fallback-tag="div" fallback-class="absolute inset-0 bg-[#0f0f1a]">
       <WaveBackground class="absolute inset-0 z-[1]" />
     </ClientOnly>
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/40 via-transparent to-[#0a0a0f]/60 z-[2]"></div>
+    <div class="absolute inset-0 bg-[#0a0a0f]/50 z-[2]"></div>
 
     <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12 py-6">
       <div class="flex flex-col items-center justify-center w-full max-w-4xl mx-auto text-center">
@@ -15,7 +15,7 @@
               class="w-16 h-16 md:w-20 md:h-20 mx-auto"
             />
           </div>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white mb-4 tracking-tight bg-gradient-to-r from-[#7C3AED] via-[#06B6D4] to-[#7C3AED] bg-clip-text text-transparent">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-[#7C3AED] mb-4 tracking-tight">
             klangbild
           </h1>
           <p class="text-lg md:text-2xl lg:text-3xl text-gray-400 max-w-2xl mx-auto">
@@ -28,7 +28,7 @@
 
         <div class="w-full max-w-3xl mx-auto mb-10 animate-fade-in-up">
           <div
-            class="relative w-full bg-transparent rounded-lg overflow-hidden border border-[#7C3AED]/20 shadow-2xl shadow-[#7C3AED]/10"
+            class="relative w-full bg-transparent overflow-hidden border border-[#7C3AED]/20 shadow-2xl shadow-[#7C3AED]/10"
             style="aspect-ratio: 16/9;"
           >
             <iframe
@@ -48,15 +48,15 @@
             >
               <div class="absolute inset-0 overflow-hidden">
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                  <div class="absolute w-2 h-2 rounded-full bg-[#7C3AED]/20 animate-pulse" style="top: 20%; left: 10%;"></div>
-                  <div class="absolute w-1 h-1 rounded-full bg-[#06B6D4]/30 animate-pulse" style="top: 60%; left: 20%; animation-delay: 0.5s;"></div>
-                  <div class="absolute w-1.5 h-1.5 rounded-full bg-[#7C3AED]/25 animate-pulse" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
-                  <div class="absolute w-1 h-1 rounded-full bg-[#06B6D4]/20 animate-pulse" style="top: 70%; left: 85%; animation-delay: 1.5s;"></div>
-                  <div class="absolute w-2 h-2 rounded-full bg-[#7C3AED]/15 animate-pulse" style="top: 15%; left: 70%; animation-delay: 2s;"></div>
+                  <div class="absolute w-2 h-2 bg-[#7C3AED]/20 animate-pulse" style="top: 20%; left: 10%;"></div>
+                  <div class="absolute w-1 h-1 bg-[#7C3AED]/30 animate-pulse" style="top: 60%; left: 20%; animation-delay: 0.5s;"></div>
+                  <div class="absolute w-1.5 h-1.5 bg-[#7C3AED]/25 animate-pulse" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
+                  <div class="absolute w-1 h-1 bg-[#7C3AED]/20 animate-pulse" style="top: 70%; left: 85%; animation-delay: 1.5s;"></div>
+                  <div class="absolute w-2 h-2 bg-[#7C3AED]/15 animate-pulse" style="top: 15%; left: 70%; animation-delay: 2s;"></div>
                 </div>
               </div>
 
-              <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#06B6D4] flex items-center justify-center opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 shadow-xl shadow-[#7C3AED]/40">
+              <div class="relative w-20 h-20 md:w-24 md:h-24 bg-[#7C3AED] flex items-center justify-center opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 shadow-xl shadow-[#7C3AED]/40">
                 <UIcon name="ph:play-fill" class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
               </div>
 
@@ -78,7 +78,7 @@
           <span class="hidden sm:block text-gray-600">|</span>
           <NuxtLink
             to="https://github.com/skvggor/klangbild"
-            class="group flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1a1a2e] hover:bg-[#1a1a2e]/80 border border-[#7C3AED]/30 hover:border-[#7C3AED]/50 transition-all duration-200"
+            class="group flex items-center gap-2 px-4 py-2 bg-[#1a1a2e] hover:bg-[#1a1a2e]/80 border border-[#7C3AED]/30 hover:border-[#7C3AED]/50 transition-all duration-200"
             external
             target="_blank"
           >
