@@ -57,7 +57,7 @@
               </div>
 
               <div class="relative w-20 h-20 md:w-24 md:h-24 bg-[#7C3AED] flex items-center justify-center opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 shadow-xl shadow-[#7C3AED]/40">
-                <UIcon name="ph:play-fill" class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
+                <UIcon name="ph:play-fill" class="w-8 h-8 md:w-10 md:h-10 text-white ml-[0.35rem]" />
               </div>
 
               <div class="absolute bottom-6 left-0 right-0 text-center">
