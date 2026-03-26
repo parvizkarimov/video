@@ -22,7 +22,7 @@
               <span>{{ copied === 'basic' ? 'Copied' : 'Copy' }}</span>
             </button>
           </div>
-          <div class="bg-[#0f0f1a]/80 p-5 rounded-lg overflow-x-auto border border-[#7C3AED]/10">
+          <div class="bg-[#0f0f1a]/80 p-5 overflow-x-auto border border-[#7C3AED]/10">
             <pre class="text-sm text-gray-300 leading-relaxed" style="white-space: pre;"><code><span class="text-[#7C3AED] font-medium">uv</span> <span class="text-[#7C3AED] font-medium">run</span> <span class="text-[#7C3AED] font-medium">klangbild</span> \
     <span class="text-[#06B6D4] font-medium">--audio</span> <span class="text-[#4ade80]">"song.mp3"</span> \
     <span class="text-[#06B6D4] font-medium">--background</span> <span class="text-[#4ade80]">"cover.jpg"</span> \
@@ -44,7 +44,7 @@
               <span>{{ copied === 'gradient' ? 'Copied' : 'Copy' }}</span>
             </button>
           </div>
-          <div class="bg-[#0f0f1a]/80 p-5 rounded-lg overflow-x-auto border border-[#7C3AED]/10">
+          <div class="bg-[#0f0f1a]/80 p-5 overflow-x-auto border border-[#7C3AED]/10">
             <pre class="text-sm text-gray-300 leading-relaxed" style="white-space: pre;"><code><span class="text-[#7C3AED] font-medium">uv</span> <span class="text-[#7C3AED] font-medium">run</span> <span class="text-[#7C3AED] font-medium">klangbild</span> \
     <span class="text-[#06B6D4] font-medium">--audio</span> <span class="text-[#4ade80]">"song.mp3"</span> \
     <span class="text-[#06B6D4] font-medium">--background</span> <span class="text-[#4ade80]">"cover.jpg"</span> \
@@ -67,7 +67,7 @@
               <span>{{ copied === 'batch' ? 'Copied' : 'Copy' }}</span>
             </button>
           </div>
-          <div class="bg-[#0f0f1a]/80 p-5 rounded-lg overflow-x-auto border border-[#7C3AED]/10">
+          <div class="bg-[#0f0f1a]/80 p-5 overflow-x-auto border border-[#7C3AED]/10">
             <pre class="text-sm text-gray-300 leading-relaxed" style="white-space: pre;"><code><span class="text-[#7C3AED] font-medium">uv</span> <span class="text-[#7C3AED] font-medium">run</span> <span class="text-[#7C3AED] font-medium">klangbild</span> \
     <span class="text-[#06B6D4] font-medium">--input-dir</span> <span class="text-[#4ade80]">"/path/to/mp3s"</span> \
     <span class="text-[#06B6D4] font-medium">--background</span> <span class="text-[#4ade80]">"cover.jpg"</span> \
@@ -116,23 +116,7 @@ const copyToClipboard = async (text: string, type: string) => {
   }
 };
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-  );
-
-  document.querySelectorAll(".code-block").forEach((el) => {
-    observer.observe(el);
-  });
-});
+useScrollReveal({ selectors: [".code-block"] });
 </script>
 
 <style scoped>

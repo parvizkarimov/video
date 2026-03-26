@@ -1,13 +1,13 @@
 <template>
   <div class="fixed bottom-6 left-4 right-4 md:left-6 md:right-6 lg:left-8 lg:right-8 z-50">
     <div
-      class="bg-[#0a0a0f]/30 backdrop-blur-xl rounded-2xl border-2 transition-all duration-300 shadow-2xl shadow-[#0a0a0f]/80"
+      class="bg-[#0a0a0f]/30 backdrop-blur-xl border-2 transition-all duration-300 shadow-2xl shadow-[#0a0a0f]/80"
       :class="isComplete ? 'border-[#7C3AED] animate-pulse-glow' : 'border-[#7C3AED]/20'"
     >
       <div class="max-w-5xl mx-auto px-6 py-4 md:px-8 md:py-5">
         <div class="flex items-center gap-4 md:gap-6">
           <button
-            class="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-[#7C3AED]/20 hover:bg-[#7C3AED]/30 flex items-center justify-center transition-all duration-300 hover:scale-105"
+            class="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 bg-[#7C3AED]/20 hover:bg-[#7C3AED]/30 flex items-center justify-center transition-all duration-300 hover:scale-105"
             @click="toggleAutoScroll"
           >
             <UIcon
@@ -18,7 +18,7 @@
 
           <div
             ref="seekBarRef"
-            class="flex-1 relative h-2 md:h-2.5 bg-[#1a1a2e] rounded-full cursor-grab active:cursor-grabbing hover:bg-[#1a1a2e]/80 transition-colors select-none"
+            class="flex-1 relative h-2 md:h-2.5 bg-[#1a1a2e] cursor-grab active:cursor-grabbing hover:bg-[#1a1a2e]/80 transition-colors select-none"
             @mousedown="startDrag"
             @mousemove="onDrag"
             @mouseup="endDrag"
@@ -28,11 +28,11 @@
             @touchend="endDrag"
           >
             <div
-              class="absolute top-0 left-0 h-full bg-gradient-to-r from-[#7C3AED] to-[#06B6D4] rounded-full transition-all duration-100 z-10 pointer-events-none"
+              class="absolute top-0 left-0 h-full bg-[#7C3AED] transition-all duration-100 z-10 pointer-events-none"
               :style="{ width: progressPercent + '%' }"
             />
             <div
-              class="absolute top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 bg-white rounded-full shadow-lg z-20 transition-transform duration-100 pointer-events-none"
+              class="absolute top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 bg-white shadow-lg z-20 transition-transform duration-100 pointer-events-none"
               :class="{ 'scale-110': isDragging }"
               :style="{ left: 'calc(' + progressPercent + '% - 8px)' }"
             />
@@ -274,8 +274,8 @@ onBeforeUnmount(() => {
   }
   50% {
     box-shadow: 0 0 15px rgba(124, 58, 237, 0.8), 0 0 30px rgba(124, 58, 237, 0.5),
-      0 0 45px rgba(6, 182, 212, 0.3);
-    border-color: rgba(6, 182, 212, 0.9);
+      0 0 45px rgba(124, 58, 237, 0.3);
+    border-color: rgba(124, 58, 237, 0.9);
   }
 }
 

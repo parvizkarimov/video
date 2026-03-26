@@ -14,10 +14,10 @@
         <div
           v-for="(feature, index) in features?.features"
           :key="feature.title"
-          class="feature-item flex items-start gap-4 p-4 rounded-lg hover:bg-[#0f0f1a]/50 transition-colors"
+          class="feature-item flex items-start gap-4 p-4 hover:bg-[#0f0f1a]/50 transition-colors"
         >
           <div class="flex-shrink-0 mt-1">
-            <div class="w-10 h-10 rounded-lg bg-[#7C3AED]/10 flex items-center justify-center">
+            <div class="w-10 h-10 bg-[#7C3AED]/10 flex items-center justify-center">
               <UIcon :name="feature.icon" class="w-5 h-5 text-[#7C3AED]" />
             </div>
           </div>
@@ -40,29 +40,13 @@ const { data: features } = await useAsyncData("features", () =>
   queryContent("features").findOne(),
 );
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-  );
-
-  document.querySelectorAll(".section-header, .feature-item").forEach((el) => {
-    observer.observe(el);
-  });
-});
+useScrollReveal({ selectors: [".section-header", ".feature-item"] });
 </script>
 
 <style>
 .section-header,
 .feature-item {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }

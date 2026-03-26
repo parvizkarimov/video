@@ -46,32 +46,18 @@ const { data: footer } = await useAsyncData("footer", () =>
   queryContent("footer").findOne(),
 );
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-
-  const footer = document.getElementById("footer");
-  if (footer) {
-    footer.style.opacity = "0";
-    footer.style.transform = "translateY(20px)";
-    footer.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-    observer.observe(footer);
-  }
-});
+useScrollReveal({ selectors: ["#footer"], threshold: 0.1, rootMargin: "0px" });
 </script>
 
-<style scoped>
+<style>
+#footer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
 #footer.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

@@ -25,7 +25,7 @@
               {{ layout.description }}
             </p>
           </div>
-          <div class="overflow-hidden rounded-lg border border-[#7C3AED]/10 group-hover:border-[#7C3AED]/30 transition-colors mt-auto bg-[#0a0a0f]">
+          <div class="overflow-hidden border border-[#7C3AED]/10 group-hover:border-[#7C3AED]/30 transition-colors mt-auto bg-[#0a0a0f]">
             <img
               :src="layout.image"
               :alt="layout.name"
@@ -40,35 +40,19 @@
 </template>
 
 <script setup lang="ts">
-const { highlight } = useGradientBrand();
+const { highlight } = useBrandHighlight();
 
 const { data: examples } = await useAsyncData("examples", () =>
   queryContent("examples").findOne(),
 );
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-  );
-
-  document.querySelectorAll(".section-header, .example-item").forEach((el) => {
-    observer.observe(el);
-  });
-});
+useScrollReveal({ selectors: [".section-header", ".example-item"] });
 </script>
 
 <style>
 .section-header,
 .example-item {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }

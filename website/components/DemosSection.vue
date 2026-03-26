@@ -16,10 +16,10 @@
           :to="demos.link.url"
           external
           target="_blank"
-          class="group flex items-center gap-4 p-6 rounded-lg border border-[#7C3AED]/20 hover:border-[#7C3AED]/50 bg-[#0a0a0f]/50 hover:bg-[#0a0a0f]/80 transition-all duration-300"
+          class="group flex items-center gap-4 p-6 border border-[#7C3AED]/20 hover:border-[#7C3AED]/50 bg-[#0a0a0f]/50 hover:bg-[#0a0a0f]/80 transition-all duration-300"
         >
           <div class="flex-shrink-0">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#06B6D4] flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7C3AED]/20">
+            <div class="w-14 h-14 bg-[#7C3AED] flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7C3AED]/20">
               <UIcon :name="demos.link.icon" class="w-7 h-7 text-white" />
             </div>
           </div>
@@ -39,37 +39,19 @@
 </template>
 
 <script setup lang="ts">
-const { highlight } = useGradientBrand();
+const { highlight } = useBrandHighlight();
 
 const { data: demos } = await useAsyncData("demos", () =>
   queryContent("demos").findOne(),
 );
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      }
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-  );
-
-  document
-    .querySelectorAll(".section-header-demos, .demo-item")
-    .forEach((el) => {
-      observer.observe(el);
-    });
-});
+useScrollReveal({ selectors: [".section-header-demos", ".demo-item"] });
 </script>
 
 <style>
 .section-header-demos,
 .demo-item {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
