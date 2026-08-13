@@ -20,21 +20,21 @@ from .constants import (
 
 def get_layout_config(layout: str) -> dict:
     if layout == "spotlight":
-        _seek_h = 10
-        _seek_w = 2800
+        _seek_h = 3
+        _seek_w = 933
         _seek_x = (WIDTH - _seek_w) // 2
-        _seek_y = HEIGHT // 2 - 400
+        _seek_y = HEIGHT // 2 - 133
 
         _text_x = WIDTH // 2
-        _text_y_title = HEIGHT // 2 - 100
-        _text_y_artist = _text_y_title + 180
-        _text_y_album = _text_y_artist + 140
-        _text_y_time = _text_y_album + 140
+        _text_y_title = HEIGHT // 2 - 33
+        _text_y_artist = _text_y_title + 60
+        _text_y_album = _text_y_artist + 47
+        _text_y_time = _text_y_album + 47
 
-        _wave_w = 2800
-        _wave_h = 200
+        _wave_w = 933
+        _wave_h = 67
         _wave_cx = WIDTH // 2
-        _wave_cy = _text_y_time + 400
+        _wave_cy = _text_y_time + 133
         _wave_x_start = (WIDTH - _wave_w) // 2
 
         return dict(
@@ -53,22 +53,22 @@ def get_layout_config(layout: str) -> dict:
             text_y_album=_text_y_album,
             text_y_time=_text_y_time,
             text_max_width=_seek_w,
-            font_size_title=120,
-            font_size_artist=80,
-            font_size_album=64,
-            font_size_time=56,
+            font_size_title=40,
+            font_size_artist=27,
+            font_size_album=21,
+            font_size_time=19,
             text_anchor="center",
-            wave_fade_width=220,
-            circular_radius=450,
+            wave_fade_width=73,
+            circular_radius=150,
         )
 
     if layout in ("split-left", "split-right"):
-        _central_area = 3200
-        _gap = 80
+        _central_area = 1067
+        _gap = 27
         _col_w = (_central_area - 3 * _gap) // 2
         _central_start = (WIDTH - _central_area) // 2
 
-        _wave_h = 280
+        _wave_h = 93
         _wave_cy = HEIGHT // 2
 
         if layout == "split-left":
@@ -89,17 +89,17 @@ def get_layout_config(layout: str) -> dict:
 
         _wave_w = _col_w
 
-        _block_h = 120 + 90 + 80 + 70
+        _block_h = 40 + 30 + 27 + 23
         _text_y_title = HEIGHT // 2 - _block_h // 2
-        _text_y_artist = _text_y_title + 140
-        _text_y_album = _text_y_artist + 110
-        _text_y_time = _text_y_album + 100
+        _text_y_artist = _text_y_title + 47
+        _text_y_album = _text_y_artist + 37
+        _text_y_time = _text_y_album + 33
 
-        _margin = 160
-        _seek_h = 10
+        _margin = 53
+        _seek_h = 3
         _seek_w = WIDTH - 2 * _margin
         _seek_x = _margin
-        _seek_y = HEIGHT - 160
+        _seek_y = HEIGHT - 53
 
         return dict(
             wave_width=_wave_w,
@@ -117,13 +117,13 @@ def get_layout_config(layout: str) -> dict:
             text_y_album=_text_y_album,
             text_y_time=_text_y_time,
             text_max_width=_col_w,
-            font_size_title=100,
-            font_size_artist=72,
-            font_size_album=60,
-            font_size_time=52,
+            font_size_title=33,
+            font_size_artist=24,
+            font_size_album=20,
+            font_size_time=17,
             text_anchor=_text_anchor,
-            wave_fade_width=140,
-            circular_radius=450,
+            wave_fade_width=47,
+            circular_radius=150,
         )
 
     return dict(
@@ -142,11 +142,11 @@ def get_layout_config(layout: str) -> dict:
         text_y_album=TEXT_Y_ALBUM,
         text_y_time=TEXT_Y_TIME,
         text_max_width=SEEK_BAR_W,
-        font_size_title=80,
-        font_size_artist=60,
-        font_size_album=50,
-        font_size_time=40,
+        font_size_title=27,
+        font_size_artist=20,
+        font_size_album=17,
+        font_size_time=13,
         text_anchor=None,
         wave_fade_width=WAVE_FADE_WIDTH,
-        circular_radius=500,
+        circular_radius=167,
     )
