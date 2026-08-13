@@ -187,10 +187,8 @@ def render_and_encode(
     write_queue.put(None)
     wt.join()
 
-    try:
-        ffmpeg_stdin.close()
-    except Exception:
-        pass
+    # In Python 3.12, manually closing stdin causes ffmpeg.communicate() to fail with ValueError.
+    # communicate() will automatically close stdin for us.
 
     _, stderr = ffmpeg.communicate()
     if write_error:
