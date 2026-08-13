@@ -59,7 +59,9 @@ async def process_photo(message: Message, state: FSMContext):
         video = FSInputFile(out_path)
         await message.answer_video(video, caption="Sizning videongiz tayyor!")
     else:
-        await message.answer(f"Video yaratishda xatolik yuz berdi:\n{result.stderr}")
+        error_msg = result.stderr if result.stderr else "Unknown error"
+        print(f"KLANGBILD ERROR:\n{error_msg}")
+        await message.answer(f"Video yaratishda xatolik yuz berdi. Iltimos, Railway loglarini tekshiring.\nXato qisqacha:\n{error_msg[-3000:]}")
         
     # Cleanup files
     for p in [mp3_path, img_path, out_path]:
